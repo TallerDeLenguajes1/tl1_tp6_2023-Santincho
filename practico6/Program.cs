@@ -1,48 +1,56 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿/////// EJERECICIO 2 ///////
 
-int a;
+int op;
+Console.WriteLine("-------MENU-------");
+Console.WriteLine("1- Sumar");
+Console.WriteLine("2- Restar");
+Console.WriteLine("3- Multiplicar");
+Console.WriteLine("4- Dividir");
+do
+{
+    Console.WriteLine("Seleccione la opcion que desea: ");
+    op = Console.Read();
+} while (op > 52 | op <= 48);
 
-int b;
-
-a = 10;
-
-b = a;
-
-Console.WriteLine("Valor de a: "+a);
-
-Console.WriteLine("Valor de b: "+b);
-
-/////// EJERECICIO 1 ///////
-
-string num1;
-
-int i;
-
-bool resultado;
+bool resulA, resulB;
+int numA, numB;
+Console.WriteLine("Ingrese 2 numeros: ");
+do
+{
+    Console.WriteLine("Ingrese el numero A: ");
+    resulA = int.TryParse(Console.ReadLine(),out numA);
+} while (!resulA);
 
 do
 {
-    do
-    {
-        Console.WriteLine("Escriba un numero");
+    Console.WriteLine("Ingrese el numero B: ");
+    resulB = int.TryParse(Console.ReadLine(),out numB);
+} while (!resulB);
 
-        num1 = Console.ReadLine();
+int operacion;
 
-        i = 0;
-
-        resultado = int.TryParse(num1, out i);
-    } while (!resultado);
-} while (i <= 0);
-
-Console.WriteLine("El numero es: "+i);
-
-int invertido = 0;
-
-while (i != 0)
+switch (op)
 {
-    invertido = invertido * 10 + i % 10;
-    i = i / 10;
+    case 49:
+        operacion = numA + numB;
+        Console.Write("Resultado: "+operacion);
+        break;
+    case 50:
+        operacion = numA - numB;
+        Console.Write("Resultado: "+operacion);
+        break;
+    case 51:
+        operacion = numA * numB;
+        Console.Write("Resultado: "+operacion);
+        break;
+    case 52:
+        if (numB != 0)
+        {
+            operacion = numA / numB;
+            Console.Write("Resultado: "+operacion);
+        } else
+        {
+            Console.WriteLine("Sintax Error");
+        }
+        break;
 }
-
-Console.WriteLine("El numero invertido es: "+invertido);
